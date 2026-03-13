@@ -1,0 +1,22 @@
+---
+version: 2
+
+models:
+  - name: stg_globepay_chargeback
+    description: Staging model for Globepay chargeback data.
+    config:
+      meta:
+        owner: himadri
+
+    columns:
+      - name: external_ref
+        description: Unique transaction reference.
+
+      - name: status
+        description: Status of the chargeback record.
+
+      - name: payment_source
+        description: Source system of the record.
+
+      - name: chargeback
+        description: Indicates if the transaction resulted in a chargeback.

@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: globepay
+    database: AE_LAB_DB
+    schema: RAW
+    tables:
+
+      - name: GLOBEPAY_ACCEPTANCE
+        columns:
+          - name: external_ref
+          - name: date_time
+          - name: state
+          - name: amount
+          - name: currency
+          - name: country
+          - name: rates
+          - name: merchantReference
+
+      - name: GLOBEPAY_CHARGEBACK
+        columns:
+          - name: external_ref
+          - name: status
+          - name: source
+          - name: chargeback

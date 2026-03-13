@@ -1,0 +1,45 @@
+---
+version: 2
+
+models:
+  - name: stg_globepay_acceptance
+    config:
+      meta:
+        authors:
+          - Himadri Sarma <himadris714@gmail.com>
+
+    description: Staging model for Globepay payment acceptance transactions.
+
+    columns:
+      - name: external_ref
+        description: Unique transaction reference returned by Globepay.
+
+      - name: status
+        description: Status of the payment request processing.
+
+      - name: payment_source
+        description: Source system of the payment transaction.
+
+      - name: merchant_reference
+        description: Merchant order reference.
+
+      - name: transaction_timestamp
+        description: Timestamp when the transaction occurred.
+
+      - name: state
+        description: Transaction outcome such as ACCEPTED or DECLINED.
+
+      - name: cvv_provided
+        description: Indicates whether CVV was provided.
+
+      - name: amount
+        description: Transaction amount in minor currency units.
+
+      - name: country
+        description: ISO country code of the card.
+
+      - name: currency
+        description: ISO currency code of the transaction.
+
+      - name: rates
+        description: JSON object containing currency exchange rates used for settlement.
