@@ -36,7 +36,7 @@ The project follows a **layered dbt modelling approach**.
 
 ## Data Flow
 
-CSV → Snowflake RAW tables → Staging models → Intermediate
+CSV loaded to Snowflake as RAW tables → Staging models → Intermediate
 transformations → Final Mart model
 
 ------------------------------------------------------------------------
