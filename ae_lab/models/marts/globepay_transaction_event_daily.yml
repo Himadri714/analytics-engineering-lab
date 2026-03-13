@@ -1,9 +1,8 @@
----
 version: 2
 
 models:
   - name: globepay_transaction_event_daily
-    description: Final mart model at transaction event grain with USD normalized amount for analyst reporting.
+    description: Final mart model at transaction event grain with transaction attributes and amount normalized to USD for reporting.
     config:
       meta:
         authors:
@@ -16,33 +15,37 @@ models:
           - not_null
           - unique
 
+      - name: status
+        description: Transaction status from the source system.
+
+      - name: payment_source
+        description: Payment method or source used for the transaction.
+
       - name: transaction_date
-        description: Transaction date.
+        description: Date of the transaction.
         tests:
           - not_null
 
+      - name: payment_status
+        description: Payment outcome or status of the transaction.
+
       - name: country
-        description: Country code associated with the transaction.
+        description: Country associated with the transaction.
 
       - name: amount
         description: Original transaction amount.
+        tests:
+          - not_null
 
       - name: currency
         description: Original transaction currency.
-
-      - name: amount_in_usd
-        description: Transaction amount converted to USD.
         tests:
           - not_null
 
       - name: chargeback
-        description: Chargeback indicator for the transaction.
+        description: Indicates whether the transaction resulted in a chargeback.
 
-      - name: is_accepted
-        description: Flag indicating whether the transaction was accepted.
-
-      - name: is_declined
-        description: Flag indicating whether the transaction was declined.
-
-      - name: missing_chargeback
-        description: Flag indicating whether chargeback data is missing.
+      - name: amount_in_usd
+        description: Transaction amount converted to USD using the matching conversion rate.
+        tests:
+          - not_null
