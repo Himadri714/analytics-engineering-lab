@@ -1,0 +1,39 @@
+---
+version: 2
+
+models:
+  - name: globepay_transaction_events
+    config:
+      meta:
+        authors:
+          - Himadri Sarma <himadris714@gmail.com>
+
+    description: Intermediate model combining payment acceptance and chargeback data at transaction grain.
+
+    columns:
+      - name: external_ref
+        description: Unique transaction identifier.
+        tests:
+          - not_null
+          - unique
+
+      - name: transaction_timestamp
+        description: Timestamp when the transaction occurred, in UTC
+        tests:
+          - not_null
+
+      - name: amount
+        description: Transaction amount in original currency.
+        tests:
+          - not_null
+
+      - name: currency
+        description: Currency of the original transaction
+        tests:
+          - not_null
+
+      - name: state
+        description: Outcome of the transaction i.e ACCEPTED or DECLINED.
+
+      - name: chargeback
+        description: Indicates if the transaction resulted in a chargeback

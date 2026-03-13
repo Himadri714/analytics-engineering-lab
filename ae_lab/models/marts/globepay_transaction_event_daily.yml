@@ -1,0 +1,48 @@
+---
+version: 2
+
+models:
+  - name: globepay_transaction_event_daily
+    description: Final mart model at transaction event grain with USD normalized amount for analyst reporting.
+    config:
+      meta:
+        authors:
+          - Himadri Sarma <himadris714@gmail.com>
+
+    columns:
+      - name: external_ref
+        description: Unique transaction reference.
+        tests:
+          - not_null
+          - unique
+
+      - name: transaction_date
+        description: Transaction date.
+        tests:
+          - not_null
+
+      - name: country
+        description: Country code associated with the transaction.
+
+      - name: amount
+        description: Original transaction amount.
+
+      - name: currency
+        description: Original transaction currency.
+
+      - name: amount_in_usd
+        description: Transaction amount converted to USD.
+        tests:
+          - not_null
+
+      - name: chargeback
+        description: Chargeback indicator for the transaction.
+
+      - name: is_accepted
+        description: Flag indicating whether the transaction was accepted.
+
+      - name: is_declined
+        description: Flag indicating whether the transaction was declined.
+
+      - name: missing_chargeback
+        description: Flag indicating whether chargeback data is missing.

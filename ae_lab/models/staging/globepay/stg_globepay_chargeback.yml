@@ -10,10 +10,15 @@ models:
 
     columns:
       - name: external_ref
-        description: Unique transaction reference.
+        description: Unique transaction reference
+        data_tests:
+          - not_null
+          - unique
 
       - name: status
         description: Status of the chargeback record.
+        data_tests:
+          - not_null
 
       - name: payment_source
         description: Source system of the record.

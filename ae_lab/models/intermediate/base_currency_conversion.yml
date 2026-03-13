@@ -1,0 +1,26 @@
+---
+version: 2
+
+models:
+  - name: base_currency_conversion
+    description: Intermediate model that flattens Globepay exchange rates into one row per transaction and conversion currency.
+    config:
+        authors:
+          - Himadri Sarma <himadris714@gmail.com>
+
+    columns:
+      - name: external_ref
+        description: Unique transaction reference
+        data_tests:
+          - not_null
+
+      - name: base_currency
+        description: Original transaction currency from the payment
+        data_tests:
+          - not_null
+
+      - name: conversion_currency
+        description: Currency code available in the rates JSON
+
+      - name: conversion_rate
+        description: Exchange rate for the conversion currency relative to the base currency

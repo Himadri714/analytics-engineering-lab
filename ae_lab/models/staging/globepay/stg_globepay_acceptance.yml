@@ -12,7 +12,10 @@ models:
 
     columns:
       - name: external_ref
-        description: Unique transaction reference returned by Globepay.
+        description: Unique transaction reference returned by Globepay
+        data_tests:
+          - not_null
+          - unique
 
       - name: status
         description: Status of the payment request processing.
@@ -24,7 +27,9 @@ models:
         description: Merchant order reference.
 
       - name: transaction_timestamp
-        description: Timestamp when the transaction occurred.
+        description: Timestamp when the transaction occurred
+        data_tests:
+          - not_null
 
       - name: state
         description: Transaction outcome such as ACCEPTED or DECLINED.
