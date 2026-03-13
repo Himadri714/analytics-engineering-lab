@@ -1,4 +1,3 @@
----
 version: 2
 
 models:
@@ -17,23 +16,36 @@ models:
           - not_null
           - unique
 
-      - name: transaction_timestamp
-        description: Timestamp when the transaction occurred, in UTC
-        tests:
-          - not_null
+      - name: status
+        description: Transaction status from the source system.
+
+      - name: payment_source
+        description: Payment method or source used for the transaction.
+
+      - name: merchant_reference
+        description: Merchant-provided reference associated with the transaction.
+
+      - name: transaction_date
+        description: Transaction date derived from transaction_timestamp.
+
+      - name: payment_status
+        description: Outcome of the transaction such as ACCEPTED or DECLINED.
+
+      - name: cvv_provided
+        description: Indicates whether CVV was provided for the transaction.
 
       - name: amount
         description: Transaction amount in original currency.
         tests:
           - not_null
 
+      - name: country
+        description: Country where the transaction was made.
+
       - name: currency
-        description: Currency of the original transaction
+        description: Currency of the original transaction.
         tests:
           - not_null
 
-      - name: state
-        description: Outcome of the transaction i.e ACCEPTED or DECLINED.
-
       - name: chargeback
-        description: Indicates if the transaction resulted in a chargeback
+        description: Indicates whether the transaction resulted in a chargeback.
