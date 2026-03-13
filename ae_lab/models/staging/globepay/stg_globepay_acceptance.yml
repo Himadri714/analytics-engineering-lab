@@ -38,13 +38,13 @@ models:
         description: Indicates whether CVV was provided.
 
       - name: amount
-        description: Transaction amount in minor currency units.
+        description: The amount that will be charged to the card
 
       - name: country
         description: ISO country code of the card.
 
       - name: currency
-        description: ISO currency code of the transaction.
+        description: The three-character ISO currency code
 
       - name: rates
         description: JSON object containing currency exchange rates used for settlement.
